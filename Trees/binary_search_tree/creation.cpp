@@ -49,6 +49,69 @@ bool Search(Node* root , int target){
     }
 }
 
+// deletion in BST
+Node* deleteNode(Node* root , int target){
+    // base
+    if(!root) return NULL;
+
+    // search the element
+    if(root -> data > target){
+        root -> left = deleteNode(root -> left , target);
+        return root;
+    }
+
+    else if(root -> data < target){
+        root -> right = deleteNode(root -> right , target);
+        return root;
+    }
+
+    // handling all the cases
+    else{
+        // case1 - deleting leaf nodes
+        if(!root -> left && !root -> right){
+            delete root;
+            return NULL;
+        }
+        // case 2 - only 1 child exists
+        else if(!root-> right){ // only left child exists
+            Node* temp = root -> left;
+            delete root;
+            return temp;
+        }
+        else if(!root -> left){  // only right child exists
+            Node* temp = root -> right;
+            delete root;
+            return temp;
+        }
+        // both child exists
+        else{
+            // find the greatest element in left subtree
+            // i.e, rightmost node of left subtree.
+            Node* child = root -> left;
+            Node* parent = root;
+
+            while(child -> right){
+                parent = child;
+                child = child -> right;
+            }
+
+            if(root != parent){
+                parent -> right = child -> left;
+                child -> left = root -> left;
+                child -> right = root -> right;
+                delete root;
+                return child;
+            }
+            else{
+                child -> right = root -> right;
+                delete root;
+                return child;
+            }
+        }
+    }
+
+}
+
 
 
 
