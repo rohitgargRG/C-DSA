@@ -64,6 +64,9 @@ void inorder(Node* root){
     inorder(root -> right);
 }
 
+
+// function to insert a node
+// Tc - O(logn)
 Node* insert(Node* root , int key){
 
     // root does not exist
@@ -115,6 +118,92 @@ Node* insert(Node* root , int key){
         return root;
     }
 }
+
+// function to delete a node from AVL tree.
+Node* deleteNode(Node* root , int key){
+
+    if(!root) return NULL;
+
+    // left side
+    if(key < root -> data){
+        root -> left = deleteNode(root -> left , key);
+    }
+    // right side
+    else if(key > root -> data){
+        root -> right = deleteNode(root -> right , key);
+    }
+    // we reached the node to be deleted
+    else{
+        // leaf node
+        if(!root -> left && !root -> right){
+            delete root;
+            return NULL;
+        }
+        // node with single child
+
+        // only left child exist
+        else if(root -> left && !root -> right){
+            Node* temp = root -> left;
+            delete root;
+            return temp;
+        }
+        // only right child exist
+        else if(!root -> left && root -> right){
+            Node* temp = root -> right;
+            delete root;
+            return temp;
+        }
+
+        // both child exist
+        else{
+            // find smallest eement from right side
+            Node* curr = root -> right;
+
+            while(curr -> left){
+                curr = curr -> left;
+            }
+
+            root -> data = curr -> data;
+
+            root -> right = deleteNode(root -> right , root -> data);
+        }
+    }
+
+    // update the height
+    root -> height = 1 + max(getHeight(root -> left) , getHeight(root -> right));
+
+    // check the balance
+    int balance = getBalance(root);
+
+    // left side
+    if(balance > 1){
+        // LL
+        if(getBalance(root -> left) >= 0){
+            return rightRotation(root);
+        }
+        //LR
+        else{
+            root -> left = leftRotation(root -> left);
+            return rightRotation(root);
+        }
+    }
+    // right side
+    else if(balance < -1){
+        //RR
+        if(getBalance(root -> right) <= 0){
+            return leftRotation(root);
+        }
+        //RL
+        else{
+            root -> right = rightRotation(root -> right);
+            return leftRotation(root);
+        }
+    }
+    // balanced
+    else{
+        return root;
+    }
+}
 int main() {
     // no duplicates
     Node* root = NULL;
@@ -128,6 +217,9 @@ int main() {
     root = insert(root ,100);
     root = insert(root ,95);
 
+    inorder(root);
+    cout<<endl;
+    root = deleteNode(root , 20);
     inorder(root);
     
     return 0;
