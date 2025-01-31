@@ -47,6 +47,45 @@ class MaxHeap{
         }
         cout<<endl;
     }
+
+    void Heapify(int index){
+        int largest = index;
+        int left = 2*index+1;
+        int right = 2*index+2;
+
+        // Largest will store the index of the lement which is greater b/w 
+        // parent , left and right child.
+
+        if(left < size && arr[left] > arr[largest]){
+            largest  = left;
+        }
+
+        if(right < size && arr[right] > arr[largest]){
+            largest  = right;
+        }
+
+        if(largest != index){
+            swap(arr[index] , arr[largest]);
+            Heapify(largest);
+        }
+    }
+    void Delete(){
+        // underflow condition
+        if(size == 0)
+        {
+            cout<<"heap underflow\n";
+            return;
+        }
+
+        cout<<arr[0]<<" deleted from heap\n";
+
+        arr[0] = arr[size - 1];
+        size--;
+
+        if(size == 0) return;
+
+        Heapify(0);
+    }
 };
 
 int main() {
@@ -60,5 +99,15 @@ int main() {
     H1.insert(24);
     H1.insert(1);
     H1.print();
+
+    H1.Delete();
+    H1.Delete();
+    H1.Delete();
+    H1.Delete();
+    H1.Delete();
+    H1.Delete();
+    H1.Delete();
+    H1.print();
+
     return 0;
 }
