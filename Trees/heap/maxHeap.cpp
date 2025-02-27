@@ -53,7 +53,7 @@ class MaxHeap{
         int left = 2*index+1;
         int right = 2*index+2;
 
-        // Largest will store the index of the lement which is greater b/w 
+        // Largest will store the index of the element which is greater b/w 
         // parent , left and right child.
 
         if(left < size && arr[left] > arr[largest]){

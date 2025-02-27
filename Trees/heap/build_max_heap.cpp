@@ -25,6 +25,7 @@ void Heapify(int arr[] , int index , int& n){
 }
 void BuildMaxHeap(int arr[] , int n){
     // step down approach
+    // TC - O(n) , SC - O(logn)
     for(int i = n/2 - 1 ; i >= 0 ; i--){
         Heapify(arr,i,n);
     }
@@ -33,7 +34,7 @@ int main() {
     int arr[] = {10,3,8,9,5,13,18,14,11,70};
     BuildMaxHeap(arr,10);
 
-    for(int i = 0; i<10;i++){
+    for(int i = 0; i < 10;i++){
         cout<<arr[i]<<" ";
     }
     return 0;
