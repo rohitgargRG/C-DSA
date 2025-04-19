@@ -33,6 +33,46 @@ vector<int> BFS(vector<vector<int>>& adj){
     return ans;
 }
 
+// DFS recursive 
+void DFS_recursive(int node , vector<vector<int>>& adj , vector<bool>& visited, vector<int>& ans){
+    // mark current bode visited
+    visited[node] = 1;
+    ans.push_back(node);
+
+    // for the current node , make recursive call for it's unvisited neighbours
+    for(int j = 0; j < adj[node].size() ; j++){
+        if(!visited[adj[node][j]]){
+            DFS_recursive(adj[node][j] , adj , visited , ans);
+        }
+    }
+}
+
+// DFS iterative -> use a stack
+void iterativeDFS(int start , vector<vector<int>>& adj , vector<bool>& visited){
+    // create a stack and push current node
+    stack<int> st;
+    st.push(start);
+    
+    int node;
+    while(!st.empty()){
+        node = st.top();
+        st.pop();
+
+        if(!visited[node]){
+            visited[node] = 1;
+            cout<<node<<" ";
+
+            // now push all the unvisited neighbours into stack
+            // reverse : to mimic DFS order
+            for(int j = adj[node].size()-1 ; j >= 0 ; j--){
+                if(!visited[adj[node][j]]){
+                    st.push(adj[node][j]);
+                }
+            }
+        }
+    }
+}
+
 
 int main() {
     int vertex,edges;
@@ -48,10 +88,13 @@ int main() {
         adj[v].push_back(u);
     }
 
-    vector<int> bfs = BFS(adj);
+    vector<bool> visited(vertex , 0);
+    vector<int> ans;
+    // DFS_recursive(0,adj,visited,ans);
+    iterativeDFS(0,adj,visited);
 
-    for(int i=  0; i < bfs.size() ; i++){
-        cout<<bfs[i]<<" ";
-    }
+    // for(int i=  0; i < ans.size() ; i++){
+    //     cout<<ans[i]<<" ";
+    // }s
     return 0;
 }
