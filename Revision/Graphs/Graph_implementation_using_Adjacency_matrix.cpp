@@ -6,7 +6,7 @@ int main() {
     int vertex,edges;
     cin>>vertex>>edges;
 
-    // adjacency matrix
+    // adjacency matrix - (size = vertex*vertex)
     vector<vector<bool>> adjacency(vertex , vector<bool>(vertex , 0));
 
     // case 1 - undirected unweighted graph
