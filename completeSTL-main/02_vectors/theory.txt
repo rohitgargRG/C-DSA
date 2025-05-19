@@ -1,5 +1,8 @@
 -- Vectors are same as dynamic arrays with the ability to resize themselves automatically when an element is inserted or deleted.
 
+--If size == capacity:
+The vector needs more space. It resizes — usually by allocating a larger memory block, typically doubling the capacity (implementation dependent but common).
+
 -- syntax - vector<dataType> vectorName;
 
 -- ************ initialisation ***********

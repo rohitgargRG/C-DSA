@@ -153,11 +153,5 @@ int main() {
     // delete a vector
     v6.clear();
 
-
-
-
-
-
-
     return 0;
 }
