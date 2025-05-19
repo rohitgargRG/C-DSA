@@ -20,7 +20,7 @@ int main(){
 
     //  ********** 2) Initialize a pair ************
 
-        // pair<char,string> pair1('R',"rohit");   // error
+    // pair<char,string> pair1('R',"rohit");   // error
     pair<char,string> pair2('R',"rohit");
 
     cout<<pair2.first<<" "<<pair2.second<<endl;

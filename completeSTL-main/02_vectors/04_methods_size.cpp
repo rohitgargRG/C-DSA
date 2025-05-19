@@ -19,7 +19,7 @@ int main(){
     //******************** resizing ***************************
     v.resize(5);
     cout<<v.size()<<"\n";
-    cout<<v[7]<<"\n"; // this won't throw an error , instea it will print the value of v[7] in v before it was resized.
+    cout<<v[7]<<"\n"; // this won't throw an error , instead it will print the value of v[7] in v before it was resized.
     // cout<<v.at(7)<<"\n"; // this will throw an out of range error
 
     /*
