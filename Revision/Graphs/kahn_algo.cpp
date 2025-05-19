@@ -8,7 +8,7 @@ void kahn_algorithm(vector<vector<int>>& adj , vector<int>& ans){
     int v = adj.size();
     vector<int> inDegree(v,0);
 
-    for(int i = 0; i < adj.size() ; i++){
+    for(int i = 0; i < v ; i++){
         for(int j = 0 ; j < adj[i].size(); j++){
             inDegree[adj[i][j]]++;
         }
@@ -17,7 +17,7 @@ void kahn_algorithm(vector<vector<int>>& adj , vector<int>& ans){
     // step 2 - push all nodes with 0 indegree into queue
     queue<int> q;
 
-    for(int i = 0; i < adj.size() ; i++){
+    for(int i = 0; i < v ; i++){
         if(!inDegree[i]) q.push(i);
     }
 

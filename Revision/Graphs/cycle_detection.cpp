@@ -2,7 +2,7 @@
 using namespace std;
 
 
-// cycle detction using DFS
+// cycle detection using DFS
 bool detect_cycleDFS(int node ,int parent, vector<vector<int>>& adj, vector<bool>& visited){
     visited[node] = 1;
 
@@ -65,7 +65,7 @@ bool detect_cycleBFS2(int start , vector<vector<int>>& adj, vector<bool>& visite
         // visit neighbours
         for(int i = 0; i < adj[node].size() ; i++){
             // ignore parent case
-            if(parent == node) continue;
+            if(parent == adj[node][i]) continue;
 
             // alrady visited -> cycle detected
             if(visited[adj[node][i]]) return 1;
