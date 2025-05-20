@@ -1,10 +1,10 @@
---  first element of the queue is either the greatest or the smallest of all elements in the queue.
+-- first element of the queue is either the greatest or the smallest of all elements in the queue.
 
--- elements are in non-increasing or non-decreasing order .
+-- elements are in increasing or decreasing order .
 
 -- each element of the queue has a priority.
 
--- the top element is always the greatest by default. i.e, by default it is stored in ascending order. 
+-- the top element is always the greatest by default. i.e, by default it is stored in descending order. 
 
 -- STL Priority Queue is the implementation of Heap Data Structure.
 
