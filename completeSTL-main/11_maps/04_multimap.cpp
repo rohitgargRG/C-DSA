@@ -36,7 +36,7 @@ int main(){
     // deleting all elements till key 3 in mpp1
     multimap<int,int>::iterator it3 = mpp1.begin();
 
-    mpp1.erase(mpp1.begin(),mpp1.upper_bound(3)); // exluding last
+    mpp1.erase(mpp1.begin(),mpp1.upper_bound(3)); // excluding last
    
 
     auto it4 = mpp1.begin();

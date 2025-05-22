@@ -20,7 +20,7 @@ int main(){
     // elements are sorted according to key values.
     // ********************************************************
 
-    // size() - Time complexity: O(1).  ******************************************
+    // size() - Time complexity: O(logN).  ******************************************
     map<int,int> m1;
 
     m1[1] = 1;

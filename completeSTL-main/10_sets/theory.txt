@@ -38,6 +38,15 @@ sets -
     -- upper-bound() - syntax - set_name.upper_bound(key).
                      - returns iterator to next higher element always.
 
+    -- ditance() - ** useful
+    // find()
+    auto itr = s6.find(200);
+
+    // find posn/index of ele
+    int pos = distance(s6.begin() , itr);
+    cout<<pos<<endl;
+
+
     -- rest functions similar to vectors.
     
     -- Time Complexity  - O(logN).
@@ -48,7 +57,7 @@ unordered_set() -
     -- To store the elements in an unsorted(random) order.
     -- implemented using a hash table .
     -- All operations on the unordered_set take constant time O(1).
-    -- O(n) in worst case.
+    -- O(n) in worst case. (in case of high collisions).
     -- syntax - unordered_set<data_type> set_name;
 
     -- rest same as set.
@@ -62,9 +71,10 @@ multiset -
     -- similar to set , but multiple elements can have same values.
     -- i.e , repetition allowed.
     -- elements are stored in sorted order.
+    -- multiset in C++ is implemented as a self-balancing binary search tree, typically a Red-Black Tree.
 
     -- rest same as sets.
-    -- TC - O(1) 
+    -- TC - O(logN) 
     -- insert() , erase()  - O(logn).
 
     -- syntax - multiset<int> st;
@@ -75,8 +85,13 @@ multiset -
     -- TC - O(logN).
     -- SC - O(1).
 
+    -- The count() method in C++'s std::multiset returns the number of elements equal to a given value.
+
 *****************************************************************************
 For Descending sets - 
 
 -- lower_bound() - returns just smaller element reference , if element is not present.
 -- upper_bound() - also returns just smaller element reference, if not present.
+
+
+-- we cannot swap set and unordered_set.

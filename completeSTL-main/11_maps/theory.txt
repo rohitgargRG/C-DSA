@@ -3,6 +3,11 @@ Maps -
     -- store elements in a mapped fashion.
     -- Each element has a key value and a mapped value.
     -- all the keys are always unique.
+    -- we can use anything at values.
+    -- but we can't use anything in keys.
+    -- we cannot use vector<int>,set<int>,unordered_map,etc as keys.
+    -- we can only use datatypes to which we can compare using < operator.
+    -- eg - int,float,char,string.
 
     -- functions() -
         -- begin() , end() , size() , max_size() , empty() , clear()
@@ -14,11 +19,12 @@ Maps -
                 -- syntax - map_name.erase(iterator position1, iterator position2)
 
     -- syntax - map<key,value> name;
+   
     -- to insert - name[key] = value;  ********
 
-    -- NOTE - elements are sorted according to key value.(by default ascending)
+    -- NOTE - elements are sorted according to key .(by default ascending)
 
-    -- Time complexity: O(n) where n is the size of map.
+    -- Time complexity: O(log(N)) where n is the size of map.
 
     -- Auxiliary Space: O(n)
 
@@ -35,6 +41,8 @@ Maps -
     -- returns an iterator pointing to the key in the container.
     -- syntax - map_name.lower_bound(key)
     -- In case k is not present in the map container, the function returns an iterator pointing to the immediate next element which is just greater than k.
+
+-- it's based on a Red-Black Tree(self-balancing binary search tree).
 
 // ***************************************************************************
 
@@ -68,3 +76,5 @@ multimap -
 
         -- count(key): Returns the number of elements with a specific key.
         -- equal_range(key): Returns a range containing all elements with a specific key.
+        -- we cannot use [] in multimap.
+        -- we need to use insert() and insert a pair into map.
