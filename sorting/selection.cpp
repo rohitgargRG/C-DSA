@@ -1,6 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// selection sort
+
+// at every step select the minimum for unsorted part
+// and swap the minimum with first index element of unsorted part.
+// there will be n-1 steps.
+// TC - O(n^2) -> for all cases.
+
 void selectionSort(vector<int>& arr){
     int n = arr.size();
 
