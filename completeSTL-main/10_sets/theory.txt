@@ -36,7 +36,7 @@ sets -
                         - If the key passed in the parameter exceeds the maximum value in the container, then the iterator returned is equivalent to s.end().
 
     -- upper-bound() - syntax - set_name.upper_bound(key).
-                     - returns next higher element always.
+                     - returns iterator to next higher element always.
 
     -- rest functions similar to vectors.
     
