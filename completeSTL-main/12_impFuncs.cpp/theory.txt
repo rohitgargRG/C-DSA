@@ -21,6 +21,6 @@ __builtin_popcount(num) -
 -- bool next_permutation()
 
     -- syntax - next_permutation(iterator 1,iterator 2);
-    --  used to rearrange the elements in the range [first, last) into the next lexicographically greater permutation.
+    -- used to rearrange the elements in the range [first, last) into the next lexicographically greater permutation.
     -- always sort the string/array first and then use this .
 
