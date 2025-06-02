@@ -40,6 +40,5 @@ int main() {
     cout<<s6<<endl;
 
 
-
     return 0;
 }

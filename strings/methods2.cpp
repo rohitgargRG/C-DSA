@@ -55,8 +55,6 @@ int main() {
     s2.erase(3,2);
     cout<<s2<<endl;
 
-    s2.erase('G');
-    cout<<s2<<endl;
     
 
     return 0;
