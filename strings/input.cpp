@@ -4,7 +4,7 @@ using namespace std;
 int main() {
 
     // creating character array and taking input
-    char arr[5];
+    char arr[10];
 
     // cin>>arr;
     // arr[2] = '\0';
@@ -16,7 +16,7 @@ int main() {
     // cin>>s;
     // cout<<s;
 
-    // these wont read after a space,Tab,Enter.
+    // this won't read after a space,Tab,Enter.
 
     // to take a string with spaces in between as input.
 
