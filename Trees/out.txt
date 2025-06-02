@@ -1,0 +1,7 @@
+total 20
+drwxrwxr-x 2 rohitgarg rohitgarg 4096 Jan 30 17:41 AVLtree
+drwxrwxr-x 2 rohitgarg rohitgarg 4096 Jan 20 09:05 binary_search_tree
+drwxrwxr-x 2 rohitgarg rohitgarg 4096 Oct 16 06:30 binary_tree
+drwxrwxr-x 2 rohitgarg rohitgarg 4096 Jan 31 12:22 heap
+drwxrwxr-x 2 rohitgarg rohitgarg 4096 Nov 28 07:07 revision1
+-rw-rw-r-- 1 rohitgarg rohitgarg    0 Feb 19 20:52 out.txt
