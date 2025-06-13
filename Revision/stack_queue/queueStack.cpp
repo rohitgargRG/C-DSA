@@ -2,6 +2,8 @@
 using namespace std;
 
 // implement queue using stack
+
+// approach 1
 // two stacks are required
 class queueStack{
     public:
@@ -54,9 +56,51 @@ class queueStack{
     int size(){
         return s1.size();
     }
-
-
 };
+
+// approach 2 - more expensive
+/*
+// two stacks are required
+class queueUsingStack{
+    public:
+    stack<int> s1,s2;
+
+    // push -> O(1)
+    void push(int data){
+        s1.push(data);
+    }
+
+    // pop -> O(n)
+    void pop(){
+        if(s1.empty()){
+            cout<<"queue is empty"<<endl;
+            return;
+        }
+        else{
+            // reverse the stack and pop
+            while(!s1.empty()){
+                s2.push(s1.top());
+                s1.pop();
+            }
+
+            s2.pop();
+
+            // s2->s1
+            while(!s2.empty()){
+                s1.push(s2.top());
+                s2.pop();
+            }
+        }
+    }
+
+    // front ->O(n)
+    int front(){
+        s1->s2;
+        return s2.top();
+    }
+};
+
+*/
 int main() {
     queueStack q;
 
