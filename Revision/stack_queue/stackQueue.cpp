@@ -12,7 +12,7 @@ class stackQueue{
             q.push(data);
         }
         else{
-            // reverse and push
+            // push and reverse earlier ones
             int sz = q.size();
             q.push(data);
 

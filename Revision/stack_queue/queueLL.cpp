@@ -56,12 +56,12 @@ class queueLL{
         size--;
     }
 
-    // size
+    // size - O(1)
     int new_size(){
         return size;
     }
 
-    // front
+    // front - O(1)
     int front(){
         if(!start && !end){
             cout<<"queue is empty"<<endl;
