@@ -44,7 +44,7 @@ Node* create_binary_tree_level_wise(int x){
 
         // create left node and right node
         if(l != -1){
-            temp -> left = new Node(l) ;
+            temp -> left = new Node(l);
             q.push(temp->left);
         }
 
@@ -57,7 +57,7 @@ Node* create_binary_tree_level_wise(int x){
     return root;
 }
 
-// recursive method to create a binary tree
+// recursive method to create a binary tree -> DFS
 Node* binaryTree(){
     int x;
     cin>>x;
