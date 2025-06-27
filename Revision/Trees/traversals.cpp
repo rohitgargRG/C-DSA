@@ -8,145 +8,196 @@ class Node{
     Node* right;
 
     Node(int data){
-        this -> data = data;
-        this -> left = NULL;
-        this -> right = NULL;
+        this->data = data;
+        this->left = NULL;
+        this->right = NULL;
     }
 };
 
-// create bianry tree
-Node* BinaryTree(){
-   int x;
-   cin>>x;
+// function to create a BT
+Node* createBT(){
+    int x;
+    cin>>x;
 
-   if(x == -1) return NULL;
+    if(x == -1) return NULL;
 
-   Node* temp = new Node(x);
-   cout<<"enter left child of "<<x<<endl;
-   temp -> left = BinaryTree();
+    Node* temp = new Node(x);
+    cout<<"enter left child of "<<temp->data<<endl;
+    temp->left = createBT();
+    cout<<"enter right child of "<<temp->data<<endl;
+    temp->right = createBT();
 
-   cout<<"enter right child of "<<x<<endl;
-   temp -> right = BinaryTree();
-
-   return temp;
+    return temp;
 }
 
-// recursive code - 
+// Traversals
 
-// preOrder - NLR
+// recursive codes
+// TC - O(n) , S - O(h)
+
+// preOrder traversal -> NLR
 void preOrder(Node* root){
     // base case
-    if(root == NULL) return;
+    if(!root) return;
 
-    cout<<root -> data<<" ";
+    // N
+    cout<<root->data<<" ";
+    // L
     preOrder(root->left);
-    preOrder(root -> right);
-
+    // R
+    preOrder(root->right);
 }
 
-// inOrder - LNR
+// inOrder traversal -> LNR
 void inOrder(Node* root){
     // base case
-    if(root == NULL) return;
+    if(!root) return;
 
-    inOrder(root -> left);
-    cout<<root->data<<endl;
-    inOrder(root -> right);
+    // L
+    inOrder(root->left);
+    // N
+    cout<<root->data<<" ";
+    // R
+    inOrder(root->right);
 }
 
-// postOrder - LRN
+// posOrder traversal -> LRN
 void postOrder(Node* root){
     // base case
-    if(root == NULL) return;
+    if(!root) return;
 
-    postOrder(root -> left);
-    postOrder(root -> right);
-    cout<<root->data<<endl;
+    // L
+    postOrder(root->left);
+    // R
+    postOrder(root->right);
+    // N
+    cout<<root->data<<" ";
 }
 
+// iterative codes
 
-// iterative approach - we will use a stack
-
-// NLR
+// preOrder - NLR
 vector<int> preOrder_iterative(Node* root){
-    vector<int> ans;
-    if(root == NULL) return ans;
-
-    //step 1 - use a stack to store  nodes
+    if(root == NULL) return {};
+    
+    // create a stack of Node* type
     stack<Node*> st;
+    vector<int> preOrder;
     st.push(root);
 
+    // start popping from stack
     while(!st.empty()){
-        Node* temp = st.top();
-        st.pop();
-
-        // N
-        ans.push_back(temp -> data);
-
-        // we want first left and then right
-        // so push right first then left , since we are using a stack.
-
-        if(root -> right) st.push(temp->left);
-        if(root -> left) st.push(temp->right);
-    }
-    return ans;
-}
-
-// LNR
-vector<int> inOrder_iterative(Node* root){
-    vector<int> ans;
-    if(!root) return ans;
-
-    stack<Node*> st;
-
-    while(!st.empty() || root != NULL){
-        // L
-        while(root != NULL){
-            st.push(root);
-            root = root -> left;
-        }
-
         root = st.top();
         st.pop();
 
-        // N
-        ans.push_back(root->data);
+        // N -> store into answer
+        preOrder.push_back(root->data);
 
-        // R
-        root = root -> right;
+        // push right child then left child
+        // so that , the left child can be processed before the right child
+        // since top of stack will have left child
+        if(root -> right) st.push(root->right);
+        if(root -> left) st.push(root->left);
     }
 
-    return ans;
+    return preOrder;
 }
 
-// postorder - LRN
+// inorder iterative -> LNR
+vector<int> inOrder_iterative(Node* root){
+    if(!root) return {};
 
-// logic -> find NRL and reverse the answer.
-vector<int> postOrder_iterative(Node* root){
-    vector<int> ans;
-    if(!root) return ans;
-
+    // create a stack
     stack<Node*> st;
+    vector<int> inOrder;
+
+    while(!st.empty() || root != NULL){
+
+        // L -> left -> push left nodes
+        while(root){
+            st.push(root);
+            root = root->left;
+        }
+
+        // N -> store into answer
+        root = st.top();
+        st.pop();
+        inOrder.push_back(root->data);
+
+        // R -> go right
+        root = root->right;
+    }
+
+    return inOrder;
+}
+
+// postOrder_iterative -> LRN
+// logic -> find NRL
+// then, reverse the answer
+vector<int> postOrder_iterative(Node* root){
+    if(!root) return {};
+
+    // find NRL
+
+    // create a stack
+    stack<Node*> st;
+    vector<int> postOrder;
     st.push(root);
 
     while(!st.empty()){
-        Node* temp = st.top();
+
+        // N -> store into answer
+        root = st.top();
         st.pop();
+        postOrder.push_back(root->data);
 
-        // N
-        ans.push_back(temp->data);
-
-        if(root -> left) st.push(temp->left);
-        if(root -> right) st.push(temp->right);
+        // push left first then right
+        if(root->left) st.push(root->left);
+        if(root->right) st.push(root->right);
     }
 
-    reverse(ans.begin(),ans.end());
-    return ans;
+    // reverse the answer and return
+    reverse(postOrder.begin() , postOrder.end());
+
+    return postOrder;
 }
 
-// level order traversal
-
-
+// print 
+void print(vector<int>& arr){
+    int n = arr.size();
+    for(int i = 0; i < n; i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
 int main() {
+
+    // create a BT
+    Node* root = createBT();
+
+    /* recursive 
+    // preorder
+    preOrder(root);
+    cout<<endl;
+
+    // inorder
+    inOrder(root);
+    cout<<endl;
+
+    // postOrder
+    postOrder(root);
+    */
+
+    // iterative
+
+    vector<int> pre = preOrder_iterative(root);
+    print(pre);
+
+    vector<int> in = inOrder_iterative(root);
+    print(in);
+
+    vector<int> post = postOrder_iterative(root);
+    print(post);
+
     return 0;
 }
