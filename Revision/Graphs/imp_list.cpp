@@ -77,6 +77,10 @@ int main() {
     }
 
 
+    // TC - O(V+E)
+    // SC - O(V+E)
+
+
 
 
 
