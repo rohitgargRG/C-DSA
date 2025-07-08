@@ -53,10 +53,22 @@ int main() {
 
     // case 3 - for directed unweighted graph
 
+    /*
+
     int u,v;
     for(int i = 0; i < edges ; i++){
         cin>>u>>v;
         adj[u][v] = 1;
+    }
+
+    print(adj);
+    */
+
+    // case 4 - directed weighted graph
+    int u,v,w;
+    for(int i = 0 ; i < edges ; i++){
+        cin>>u>>v>>w;
+        adj[u][v] = w;
     }
 
     print(adj);
