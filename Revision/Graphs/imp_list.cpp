@@ -24,6 +24,8 @@ int main() {
     // vector<int> adj[vertex];
 
     // case 1 - undirected unweighted graph
+
+    /*
     int u,v;
     for(int i = 0; i < edges; i++){
         cin>>u>>v;
@@ -32,5 +34,18 @@ int main() {
     }
 
     print(adj);
+    */
+
+    // case 2 - directed unweighted graph
+    int u,v;
+    for(int i = 0 ; i < edges ; i++){
+        cin>>u>>v;
+        adj[u].push_back(v);
+    }
+
+    print(adj);
+
+
+
     return 0;
 }
