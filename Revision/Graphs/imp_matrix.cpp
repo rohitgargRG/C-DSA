@@ -75,5 +75,8 @@ int main() {
 
     // completed all cases
 
+    // TC - O(V^2)
+    // SC - O(V^2)
+
     return 0;
 }
