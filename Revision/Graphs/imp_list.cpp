@@ -2,6 +2,19 @@
 using namespace std;
 
 // implementation of Graph using adjacency list    
+void print(vector<vector<int>> adj){
+    int n = adj.size();
+
+    for(int i = 0; i < n; i++){
+        cout<<i<<" -> ";
+        for(int j = 0; j < adj[i].size(); j++){
+            cout<<adj[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    cout<<endl;
+}
+
 int main() {
 
     int vertex,edges;
@@ -11,5 +24,13 @@ int main() {
     // vector<int> adj[vertex];
 
     // case 1 - undirected unweighted graph
+    int u,v;
+    for(int i = 0; i < edges; i++){
+        cin>>u>>v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+
+    print(adj);
     return 0;
 }
