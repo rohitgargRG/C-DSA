@@ -47,7 +47,7 @@ int main() {
         adj[v][u] = w;
     }
 
-    print(adj);
+   
 
     return 0;
 }
