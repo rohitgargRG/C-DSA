@@ -34,7 +34,7 @@ vector<int> bfs(vector<vector<int>> &adj) {
     return ans;
 }
 
-// DFS
+// DFS -> // TC - O(V+E) , SC - O(V)
  void DFS(int node , vector<vector<int>>& adj , vector<int>& ans , vector<bool>& visited){
         
         // mark visited and store in answer
