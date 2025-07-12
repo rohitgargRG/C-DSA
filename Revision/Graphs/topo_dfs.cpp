@@ -38,7 +38,7 @@ class Solution {
         vector<int> ans;
         
         while(!s.empty()){
-            ans.push_back(st.top());
+            ans.push_back(s.top());
             s.pop();
         }
         
