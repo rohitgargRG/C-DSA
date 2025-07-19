@@ -100,5 +100,15 @@ int main() {
     cout<<s3.get_roll()<<endl;
     cout<<s3.get_age()<<endl;
 
+    // dynamic memory allocation
+    Student *S = new Student;
+
+    (*S).name = "cr7";
+    (*S).age = 40;
+    (*S).roll = 100;
+    S->grade = "A";
+
+    cout<<S->name<<" "<<S->age<<" "<<S->roll<<" "<<S->grade<<endl;
+
     return 0;
 }
