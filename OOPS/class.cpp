@@ -100,7 +100,7 @@ int main() {
     cout<<s3.get_roll()<<endl;
     cout<<s3.get_age()<<endl;
 
-    // dynamic memory allocation
+    // dynamic memory allocation into heap
     Student *S = new Student;
 
     (*S).name = "cr7";
