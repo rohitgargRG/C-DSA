@@ -19,7 +19,12 @@ class Stud{
 
     public:
     // setter()
+    // we can also perform security/data protection checks using setters and getters
     void set_name(string str){
+        if(str.size() == 0){
+            cout<<"please enter valid name"<<endl;
+            return;
+        }
         name = str;
     }
 
@@ -32,6 +37,11 @@ class Stud{
     }
 
     void set_age(int x){
+        if(x < 0 || x > 100){
+            cout<<"please enter valid age"<<endl;
+            return;
+        }
+
         age = x;
     }
 
@@ -40,8 +50,11 @@ class Stud{
         return name;
     }
 
-    string get_grade(){
+    string get_grade(int pin){
+        if(pin == 123)
         return grade;
+
+        return "invalid pin";
     }
 
     int get_roll(){
@@ -83,7 +96,7 @@ int main() {
 
     // getters()
     cout<<s3.get_name()<<endl;
-    cout<<s3.get_grade()<<endl;
+    cout<<s3.get_grade(231)<<endl;
     cout<<s3.get_roll()<<endl;
     cout<<s3.get_age()<<endl;
 
