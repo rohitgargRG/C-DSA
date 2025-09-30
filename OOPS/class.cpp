@@ -6,8 +6,6 @@ class Student{
     public:  // by default private
     string name,grade;
     int roll , age;
-
-   
 };
 
 class Stud{

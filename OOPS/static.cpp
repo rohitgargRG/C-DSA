@@ -16,6 +16,7 @@ class Customer{
         this->balance = balance;
         total_customer++;
         total_balance += balance;
+        
     }
 
     // static member function
