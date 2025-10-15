@@ -37,7 +37,7 @@ class Engineer_Footballer : public Engineer , public Footballer{
 protected:
     int age;
 public:
-    Engineer_Footballer(string department , int goals,int age){
+    Engineer_Footballer(string department,int goals,int age){
         cout<<"inside E+F const"<<endl;
         this->department = department;
         this->goals = goals;
@@ -47,7 +47,6 @@ public:
     void tellALL(){
         cout<<"i am enginner + footballer of age "<<age<<endl;
     }
-
 };
 int main() {
     Engineer_Footballer obj1("CSE",10,22);

@@ -22,9 +22,8 @@ class Customer{
     // }
 
     // Customer(string name , int acc_no , int balance){
-    //     this->name = name;
-    //     this->acc_no = acc_no;
-    //     this->balance = balance;
+    //    
+    
     // }
 
     // Construtor Overloading
@@ -48,8 +47,6 @@ class Customer{
         acc_no = B.acc_no;
         balance = B.balance;
     }
-
-
 };
 int main() {
     Customer c1;

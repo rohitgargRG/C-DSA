@@ -41,7 +41,7 @@ public:
 };
 
 
-class Girl:public Student,public Male
+class Girl:public Student,public Female
 {
 
 public:
