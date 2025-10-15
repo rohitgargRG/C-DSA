@@ -28,7 +28,7 @@ class stack_using_LL{
         temp -> next = top;
         top = temp;
         size++;
-    }
+    }                                                                                                                                                                                                                                                                                                                     
 
     // pop - O(1)
     void New_pop(){

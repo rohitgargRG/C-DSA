@@ -3,7 +3,7 @@ using namespace std;
 
 // selection sort
 
-// at every step select the minimum for unsorted part
+// at every step select the minimum from unsorted part
 // and swap the minimum with first index element of unsorted part.
 // there will be n-1 steps.
 // TC - O(n^2) -> for all cases.
@@ -14,6 +14,8 @@ void selectionSort(vector<int>& arr){
     int mini;
     for(int i = 0; i < n-2 ; i++){
         mini = i;
+
+        // find minimum in unsorted part
         for(int j = i ; j <= n-1 ; j++){
             if(arr[j] < arr[mini]) mini = j;
         }

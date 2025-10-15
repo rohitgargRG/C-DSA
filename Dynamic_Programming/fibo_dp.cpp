@@ -12,7 +12,7 @@ int fibo_dp(int n , vector<int>& dp){
     // check if the answer for current problem is already precomputed
     if(dp[n] != -1) return dp[n];
 
-    // store the answer of current problem in dp array and return it
+    // store the answer of current subproblem in dp array and return it
 
     return dp[n] = fibo_dp(n-1 , dp) + fibo_dp(n-2,dp);
 }

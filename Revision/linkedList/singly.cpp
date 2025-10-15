@@ -22,15 +22,14 @@ Node* arrayToLL(vector<int>& arr){
     // create head
     Node* head = new Node(arr[0] , NULL);
     Node* temp = head;
+
     // iterate and fill
     for(int i = 1; i < n; i++){
         Node* newNode = new Node(arr[i],NULL);
         temp->next = newNode;
         temp = temp->next;
     }
-
     return head;
-
 }
 
 // print LL -> O(n)
@@ -53,9 +52,7 @@ int lengthLL(Node* head){
         len++;
         temp = temp->next;
     }
-
     return len;
-
 }
 
 // search in a LL -> O(n)
@@ -66,7 +63,6 @@ bool searchLL(Node* head , int element){
         if(temp -> data == element) return true;
         temp = temp->next;
     }
-
     return false;
 }
 
@@ -122,12 +118,10 @@ Node* delete_kth(Node* head , int k){
         prev = curr;
         curr= curr->next;
     }
-
     prev -> next = curr -> next;
     curr->next = NULL;
     free(curr);
     return head;
-
 }
 
 // insertion in LL
